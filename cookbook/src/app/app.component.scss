@@ -1,0 +1,63 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    height: 64px;
+  
+    .container {
+        display: grid; // Используем CSS Grid для сетки
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // Максимум 3 колонки, минимальная ширина 300px
+        gap: 16px; // Отступы между карточками рецептов
+        padding: 20px; // Внутренние отступы контейнера
+      }
+      
+      .recipe-card {
+        background-color: #ffffff; // Цвет фона карточки
+        border-radius: 8px; // Закругленные углы
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Тень для эффекта глубины
+        overflow: hidden; // Скрыть переполнение
+        transition: transform 0.2s; // Плавный переход при наведении
+      
+        &:hover {
+          transform: translateY(-4px); // Эффект при наведении
+        }
+      
+        .recipe-image {
+          width: 100%; // Изображение на всю ширину карточки
+          height: auto; // Автоматическая высота
+          max-height: 200px; // Ограничение высоты изображения
+          object-fit: cover; // Объект, который будет покрывать область
+        }
+      
+        .recipe-content {
+          padding: 16px; // Внутренние отступы для содержимого карточки
+      
+          h3 {
+            margin: 0; // Убираем отступы у заголовка
+            font-size: 1.5rem; // Размер шрифта заголовка
+            color: #333; // Цвет заголовка
+          }
+      
+          p {
+            margin: 8px 0; // Отступы для описания рецепта
+            color: #666; // Цвет текста описания
+            font-size: 1rem; // Размер шрифта описания
+          }
+      
+          button {
+            margin-top: 12px; // Отступ сверху для кнопки
+            background-color: #007bff; // Цвет кнопки
+            color: #fff; // Цвет текста кнопки
+            border: none; // Убираем рамку
+            border-radius: 4px; // Закругленные углы кнопки
+            padding: 8px 16px; // Внутренние отступы кнопки
+            cursor: pointer; // Курсор в виде указателя
+      
+            &:hover {
+              background-color: #0056b3; // Цвет кнопки при наведении
+            }
+          }
+        }
+      }
+  }

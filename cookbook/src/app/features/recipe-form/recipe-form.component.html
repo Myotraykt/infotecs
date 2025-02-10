@@ -1,0 +1,82 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="form-container">
+    <!-- Заголовок -->
+    <mat-form-field appearance="fill">
+      <mat-label>Название рецепта</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="recipeForm.get('title')?.hasError('required')">
+        Обязательное поле
+      </mat-error>
+    </mat-form-field>
+  
+    <!-- Ингредиенты -->
+    <div formArrayName="ingredients">
+      <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i" class="ingredient-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Ингредиент</mat-label>
+          <input matInput formControlName="name">
+          <mat-error>Обязательное поле</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="quantity-field">
+          <mat-label>Количество</mat-label>
+          <input matInput type="number" formControlName="quantity" step="0.1">
+          <mat-error>Минимум 0.1</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Единица измерения</mat-label>
+          <mat-select formControlName="unit">
+            <mat-option *ngFor="let unit of units" [value]="unit">{{ unit }}</mat-option>
+          </mat-select>
+          <mat-error>Выберите единицу</mat-error>
+        </mat-form-field>
+  
+        <button mat-icon-button type="button" (click)="removeIngredient(i)" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  
+    <button mat-raised-button type="button" (click)="addIngredient()" color="primary">
+      Добавить ингредиент
+    </button>
+  
+    <!-- Инструкции -->
+    <mat-form-field appearance="fill" class="instructions-field">
+      <mat-label>Инструкции по приготовлению</mat-label>
+      <textarea matInput formControlName="instructions" rows="1" required></textarea>
+      <mat-error>Обязательное поле</mat-error>
+    </mat-form-field>
+  
+    <!-- Загрузка изображения -->
+    <div class="image-section">
+      <input 
+        type="file" 
+        accept="image/*" 
+        (change)="onFileSelected($event)" 
+        hidden 
+        #fileInput
+      >
+      <button 
+        mat-raised-button 
+        type="button" 
+        (click)="fileInput.click()"
+      >
+        <mat-icon>image</mat-icon>
+        {{ recipeForm.get('imageUrl')?.value ? 'Изменить' : 'Добавить' }} изображение
+      </button>
+      
+      <img 
+        *ngIf="recipeForm.get('imageUrl')?.value"
+        [src]="recipeForm.get('imageUrl')?.value" 
+        class="image-preview"
+        alt="Превью изображения"
+      >
+    </div>
+  
+    <!-- Кнопка сохранения -->
+    <button mat-raised-button color="accent" type="submit" [disabled]="!recipeForm.valid">
+      {{ isEditMode ? 'Обновить рецепт' : 'Создать рецепт' }}
+    </button>
+  </form>
+  
