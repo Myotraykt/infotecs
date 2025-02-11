@@ -23,6 +23,7 @@ import { RecipeListComponent } from './features/recipe-list/recipe-list.componen
 import { RecipeFormComponent } from './features/recipe-form/recipe-form.component';
 import { ConfirmationDialogComponent } from './shared/components/confirmation-dialog/confirmation-dialog.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RecipeDetailComponent } from './features/recipe-detail/recipe-detail.component';
 
 const routes: Routes = [
   { path: '', component: RecipeListComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
     AppComponent,
     RecipeListComponent,
     RecipeFormComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    RecipeDetailComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

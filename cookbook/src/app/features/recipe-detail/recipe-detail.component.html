@@ -1,0 +1,31 @@
+<div class="recipe-container">
+    <button mat-button routerLink="/">← Назад</button>
+  
+    <mat-card class="recipe-card">
+      <mat-card-header>
+        <mat-card-title>{{ recipe.title }}</mat-card-title>
+        <mat-card-subtitle>
+          Создан: {{ recipe.createdAt | date:'dd.MM.yyyy HH:mm' }}
+        </mat-card-subtitle>
+      </mat-card-header>
+  
+      <img 
+        *ngIf="recipe.imageUrl"
+        [src]="recipe.imageUrl" 
+        alt="Изображение рецепта"
+        class="recipe-image"
+      >
+  
+      <mat-card-content>
+        <h3>Ингредиенты:</h3>
+        <ul>
+          <li *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+          </li>
+        </ul>
+  
+        <h3>Инструкции:</h3>
+        <p>{{ recipe.instructions }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -27,7 +27,6 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadRecipes();
-    console.log('RecipeList loaded');
   }
 
   loadRecipes(): void {
@@ -45,6 +44,10 @@ export class RecipeListComponent implements OnInit {
         this.loadRecipes();
       }
     });
+  }
+
+  viewRecipe(id: string): void {
+    this.router.navigate(['/recipe', id]);
   }
 
   editRecipe(id: string): void {

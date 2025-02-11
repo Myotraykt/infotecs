@@ -1,63 +1,63 @@
 .form-container {
     display: flex;
-    flex-direction: column; // Вертикальное выравнивание
-    max-width: 600px; // Максимальная ширина формы
-    margin: 20px auto; // Центрирование формы по горизонтали
-    padding: 16px; // Внутренние отступы
-    background-color: #ffffff; // Цвет фона формы
-    border-radius: 8px; // Закругленные углы
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Тень для эффекта глубины
+    flex-direction: column;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
     mat-form-field {
-      margin-bottom: 16px; // Отступ между полями ввода
-      width: 100%; // Ширина полей ввода на всю ширину родителя
+      margin-bottom: 16px;
+      width: 100%;
   
       .mat-error {
-        font-size: 12px; // Размер шрифта для сообщений об ошибках
+        font-size: 12px;
       }
     }
   
     .ingredient-row {
-      display: flex; // Используем Flexbox для размещения ингредиентов
-      align-items: center; // Выравнивание по центру по вертикали
-      margin-bottom: 12px; // Отступ между строками ингредиентов
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
   
       mat-form-field {
-        flex: 1; // Поля ввода занимают равное пространство
-        margin-right: 8px; // Отступ между полями
+        flex: 1;
+        margin-right: 8px;
   
         &:last-child {
-          margin-right: 0; // Убираем отступ у последнего поля
+          margin-right: 0;
         }
       }
   
       .quantity-field {
-        flex-basis: 120px; // Задаем фиксированную ширину для поля количества
+        flex-basis: 120px;
       }
   
       button {
-        margin-left: 8px; // Отступ между полем и кнопкой удаления
+        margin-left: 8px;
       }
     }
   
     .image-section {
-      display: flex; // Используем Flexbox для размещения кнопки и изображения
-      align-items: center; // Выравнивание по центру по вертикали
+      display: flex;
+      align-items: center;
   
       button {
-        margin-right: 16px; // Отступ между кнопкой и изображением
+        margin-right: 16px;
       }
   
       .image-preview {
-        max-width: 100%; // Ограничиваем ширину изображения
-        max-height: 200px; // Ограничиваем высоту изображения
-        border-radius: 4px; // Закругленные углы для изображения
-        margin-top: 8px; // Отступ сверху для изображения
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 4px;
+        margin-top: 8px;
       }
     }
   
     button[type="submit"] {
-      margin-top: 20px; // Отступ сверху для кнопки сохранения
-      align-self: flex-end; // Выравнивание кнопки по правому краю
+      margin-top: 20px;
+      align-self: flex-end;
     }
   }

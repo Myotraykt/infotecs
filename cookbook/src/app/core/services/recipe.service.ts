@@ -48,5 +48,14 @@ export class RecipeService {
     this.recipes = this.recipes.filter(r => r.id !== id);
     this.saveToStorage();
   }
+
+  getRecipeById(id: string): Recipe | undefined {
+    const recipe = this.recipes.find(r => r.id === id);
+    if (!recipe) {
+      console.error('Recipe not found with id:', id);
+      return undefined;
+    }
+    return recipe;
+  }
 }
 

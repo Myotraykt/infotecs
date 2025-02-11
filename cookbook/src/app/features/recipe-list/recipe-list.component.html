@@ -9,7 +9,7 @@
   
     <!-- Список рецептов -->
     <div class="recipe-grid">
-      <mat-card *ngFor="let recipe of recipes" class="recipe-card">
+      <mat-card *ngFor="let recipe of recipes" class="recipe-card" (click)="viewRecipe(recipe.id)">
         <mat-card-header>
           <mat-card-title>{{ recipe.title }}</mat-card-title>
           <mat-card-subtitle>
